@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { isVisibleSpinner } from "../hooks/manipulationStoryBlock";
+import { isVisibleSpinner, animateText } from "../hooks/manipulationStoryBlock";
 
 const responseFromServer = ref(" ");
 
@@ -23,13 +23,18 @@ async function sendRequest(promptText) {
 
     const data = await response.json();
     console.log(JSON.stringify(data));
-    responseFromServer.value = JSON.stringify(
-      data.result.alternatives[0].message.text
-        .replace(/\n*/g, "")
-        .replace(/\*{1,2}/g, "")
-        .trim()
-    );
+    responseFromServer.value = data.result.alternatives[0].message.text
+      .replace(/\n*/g, "")
+      .replace(/\*{1,2}/g, "")
+      .trim();
+
     isVisibleSpinner.value = false;
+
+    responsiveVoice.speak(responseFromServer.value, "Russian Female", {
+      onstart: function () {
+        animateText();
+      },
+    });
   } catch (error) {
     console.error("Ошибка при отправке запроса:", error);
   }

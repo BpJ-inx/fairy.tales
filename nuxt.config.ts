@@ -13,15 +13,22 @@ export default defineNuxtConfig({
     head: {
       title: 'Волшебный Сказочник',
       meta: [
-        { name: 'description', content: 'An application that generates fairy tales according to your preferences using YandexGPT' }, 
-        { name: 'keywords', content: 'YandexGPT,fairy tales' }, 
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' }, 
+        { name: 'description', content: 'An application that generates fairy tales according to your preferences using YandexGPT' },
+        { name: 'keywords', content: 'YandexGPT,fairy tales' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { charset: 'utf-8' }
       ],
       link: [
         { rel: 'icon', href: '/favicon.ico' }
+      ],
+      script: [
+        {
+          src: "https://code.responsivevoice.org/responsivevoice.js?key=LKC3RBya",
+          async: true,
+        }
       ]
     }
-  }
+  },
+
 })
 

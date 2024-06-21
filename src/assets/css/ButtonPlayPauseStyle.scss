@@ -1,0 +1,54 @@
+.play_pause_button {
+  background-color: #87cefa;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.3s ease;
+}
+.play_pause_button:hover {
+  background-color: #7ec8e3;
+  transform: scale(1.05);
+}
+
+.play_icon,
+.pause_icon {
+  display: inline-block;
+}
+
+.play_icon {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent white;
+}
+
+.pause_icon {
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+
+.pause_icon::before,
+.pause_icon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 14px;
+  background-color: white;
+}
+
+.pause_icon::before {
+  left: 0;
+}
+
+.pause_icon::after {
+  right: 0;
+}

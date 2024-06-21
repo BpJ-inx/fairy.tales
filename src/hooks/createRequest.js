@@ -12,11 +12,12 @@ const tone = ref("");
 
 const combineRequestTags = () => {
   const storyRequest = `
-    Придумай сказку историю для детей ${audience.value}, в ${tone.value} тоне на тему ${theme.value}.
+    Придумай сказку историю используя лексику понятную для ${audience.value}, в ${tone.value} тоне на тему ${theme.value}.
     Про главного героя по имени ${hero.value}, цель которого ${goal.value}, но который встречается с препядствием в виде ${obstacles.value}.
     В его приключениях ему так же встретяться например ${characters.value}, придумай сам будут ли они друзья или противники.
     Вся эта сказка происходит в ${setting.value}.
     История должна быть с поучительным финалом.
+    Ответ сразу начинаф с истории без лишних слов
   `;
 
   sendRequest(storyRequest.trim());

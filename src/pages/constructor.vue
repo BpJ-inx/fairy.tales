@@ -47,12 +47,20 @@
       </div>
     </div>
 
-    <div class="background_story" v-if="isVisible">
+    <div class="background_story flex" v-if="isVisible">
       <div class="story_block mt-4 p-4 rounded">
         <div class="spiner" v-if="isVisibleSpinner"></div>
-        <div class="mb-5" v-if="!isVisibleSpinner">
-          <h5 class="title_name flex justify-center text-4xl mb-4">Сказка</h5>
-          <p id="story-text ">{{ responseFromServer }}</p>
+        <div class="mb-5 w-full" v-if="!isVisibleSpinner">
+          <h5 class="title_name flex justify-center items-center text-4xl mb-2">
+            Сказка
+          </h5>
+          <div class="buttonsBox flex flex-row justify-end">
+            <ButtonPlayPause @click="playPause"> </ButtonPlayPause>
+            <ButtonShowText @click="stopAnimateText">
+              Показать всю историю
+            </ButtonShowText>
+          </div>
+          <p id="story-text ">{{ animatedText }}</p>
         </div>
         <ButtonBig @click="closeStoryBlock()">Закрыть</ButtonBig>
       </div>
@@ -66,6 +74,9 @@ import {
   isVisible,
   isVisibleSpinner,
   closeStoryBlock,
+  animatedText,
+  stopAnimateText,
+  playPause,
 } from "../hooks/manipulationStoryBlock";
 import {
   theme,
@@ -102,6 +113,9 @@ export default {
       isVisibleSpinner,
       closeStoryBlock,
       showAndCombine,
+      animatedText,
+      stopAnimateText,
+      playPause,
     };
   },
 };
